@@ -109,31 +109,21 @@ view: users {
     type: count
     html:
 
-    {% if state_selector._parameter_value == state._value %}
-      <div style="background-color:gray; height:50px; width:100%;">
+      <div style="{% if state_selector._parameter_value == state._value %}background-color:gray; {% else %} {% endif %}height:50px; width:100%;">
         <p style="height:50px;">{{count_male._rendered_value}} / {{rendered_value}} </p>
-      </div>
-    {% else %}
-        <p style="height:50px;">{{count_male._rendered_value}} / {{rendered_value}} </p>
-    {% endif %};;
+      </div>;;
   }
 
   measure: percent_metric{
     type: number
     value_format_name:  decimal_1
     sql: 100.0*${count_male} / NULLIF(${count},0) ;;
-    html:     {% if state_selector._parameter_value == state._value %}
-      <div style="background-color:gray; height:50px; width:100%;">
-      <div style=" border-radius: 50%; color:white; background-color:lightgreen; height:50px;width:50px; text-align:center;">
+    html:
+      <div style="{% if state_selector._parameter_value == state._value %}background-color:gray; {% else %} {% endif %} height:50px; width:100%;">
+      <div style=" border-radius: 50%; color:white; background-color: {% if value > 50 %}lightgreen{% else %}red{% endif %}; height:50px;width:50px; text-align:center;">
             <p style= "font-size:16px; padding-top:10px; padding-bottom:10px;"><b>{{rendered_value}}</b></p>
           </div>
-      </div>
-    {% else %}
-      <div style=" border-radius: 50%; color:white; background-color:lightgreen; height:50px;width:50px; text-align:center;">
-            <p style= "font-size:16px; padding-top:10px; padding-bottom:10px;"><b>{{rendered_value}}</b></p>
-          </div>
-    {% endif %};;
-
+      </div>;;
   }
 
   measure: percent_metric_2{
@@ -141,17 +131,12 @@ view: users {
     value_format_name:  decimal_1
     sql:100.0*(1 - (${count_male} / NULLIF(${count},0))) ;;
     html:
-    {% if state_selector._parameter_value == state._value %}
-      <div style="background-color:gray; height:50px; width:100%;">
-      <div style=" border-radius: 50%; color:white; background-color:lightgreen; height:50px;width:50px; text-align:center;">
+      <div style="{% if state_selector._parameter_value == state._value %}background-color:gray; {% else %} {% endif %} height:50px; width:100%;">
+      <div style=" border-radius: 50%; color:white; background-color: {% if value > 50 %}lightgreen{% else %}red{% endif %}; height:50px;width:50px; text-align:center;">
             <p style= "font-size:16px; padding-top:10px; padding-bottom:10px;"><b>{{rendered_value}}</b></p>
           </div>
       </div>
-    {% else %}
-      <div style=" border-radius: 50%; color:white; background-color:lightgreen; height:50px;width:50px; text-align:center;">
-            <p style= "font-size:16px; padding-top:10px; padding-bottom:10px;"><b>{{rendered_value}}</b></p>
-          </div>
-    {% endif %}
+
     ;;
 
     }
