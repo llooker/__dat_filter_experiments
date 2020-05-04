@@ -4,9 +4,6 @@ application: dashboard_carousel {
   file: "js/bundle.js"
 }
 
-
-
-
 visualization: {
   id: "ping_pong"
   url: "https://localhost:4443/web_component.js"
