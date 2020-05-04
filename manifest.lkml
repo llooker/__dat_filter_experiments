@@ -7,15 +7,15 @@ application: dashboard_carousel {
 
 
 
-application: osjl_hello_world {
-  label: "Hello World"
-  url: "http://localhost:8080/bundle.js"
+visualization: {
+  id: "ping_pong"
+  url: "https://localhost:4443/web_component.js"
+  label: "Ping Pong"
 }
 
-
-
+#working example....
 visualization: {
-  id: "Sankey"
-  file: "js/hello_world.js"
+  id: "sankey"
+  url: "https://localhost:8080/src/examples/sankey/sankey.ts"
   label: "Sankey"
 }
