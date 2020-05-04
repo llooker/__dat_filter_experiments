@@ -16,6 +16,6 @@ visualization: {
 #working example....
 visualization: {
   id: "sankey"
-  url: "https://localhost:8080/src/examples/sankey/sankey.ts"
+  url: "https://localhost:8080/sankey.js"
   label: "Sankey"
 }
