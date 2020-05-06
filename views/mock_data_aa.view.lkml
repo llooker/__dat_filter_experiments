@@ -108,20 +108,35 @@ view: mock_data_aa {
     sql: ${TABLE}.aa_health ;;
   }
 
-  dimension: step_1 {
+  dimension: step_1_raw {
+    hidden: yes
     type: number
     sql: ${TABLE}.step_1 ;;
   }
+  measure: step_1 {
+    type: max
+    sql: ${step_1_raw} ;;
+  }
 
-  dimension: step_2 {
+  dimension: step_2_raw {
+    hidden: yes
     type: number
     sql: ${TABLE}.step_2 ;;
   }
-
-  dimension: step_3 {
+  measure: step_2 {
+    type: max
+    sql: ${step_2_raw} ;;
+  }
+  dimension: step_3_raw {
+    hidden: yes
     type: number
     sql: ${TABLE}.step_3 ;;
   }
+  measure: step_3 {
+    type: max
+    sql: ${step_3_raw} ;;
+  }
+
 
   measure: count {
     type: count
