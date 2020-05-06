@@ -4,4 +4,4 @@ include: "views/*"
 
 explore: users {}
 
-explore: mock_data {}
+explore: mock_data_pp {}
