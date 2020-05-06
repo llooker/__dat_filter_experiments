@@ -1,5 +1,6 @@
 view: mock_data_aa {
   derived_table: {
+    persist_for: "24 hours"
     sql:
       SELECT
       1.58805E+12 AS rowtime, NULL AS rowkey, '2020-04-28T04:10:00.000Z' AS start_time, '2020-04-28T04:40:00.000Z' AS end_time, 'FA-UPI' AS feature, '2020-04-28 04:40:00FA-UPI' AS key, 6 AS failed_sessions, 36 AS successful_sessions, 2 AS failed_customers, 28 AS customers_attempted, 0.8571428571428571 AS success_rate, '2020-04-28 04:40:00' AS time, 10.623656153502322 AS yellow_fc_bound, 13.279570191877903 AS red_fc_bound, 0.4999999999999999 AS yellow_sr_bound, 0.3999999999999999 AS red_sr_bound, 0 AS aa_health, 45 AS step_1, 44 AS step_2, 44 AS step_3
