@@ -7,7 +7,7 @@ explore: users {}
 explore: mock_data_pp {}
 
 explore: mock_data_pd {hidden:yes}
-explore: mock_data_aa {}
+explore: mock_data_aa {hidden:yes}
 
 explore: aa_pd {
   view_name: mock_data_aa
