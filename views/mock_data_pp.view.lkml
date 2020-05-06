@@ -1,4 +1,4 @@
-view: mock_data {
+view: mock_data_pp {
   derived_table: {
     sql:
       SELECT
