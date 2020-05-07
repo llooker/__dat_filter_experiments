@@ -108,14 +108,32 @@ view: latest_only_pd {
     timeframes: [raw,time]
   }
   dimension: system_failure_cum {
+    hidden: yes
     type: number
   }
   dimension: system_other_failure_cum {
+    hidden: yes
     type: number
   }
   dimension: total_failures_cum {
+    hidden: yes
     type: number
   }
+
+  measure: system_failure_cum_ {
+    type: max
+    sql: ${total_failures_cum} ;;
+  }
+  measure: system_other_failure_cum_ {
+    type: max
+    sql: ${system_other_failure_cum} ;;
+    }
+  measure: total_failures_cum_ {
+    type: max
+    sql: ${total_failures_cum} ;;
+    }
+
+
   dimension: yellow_failed_call_threshold {
     type: number
   }
