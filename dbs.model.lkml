@@ -2,8 +2,6 @@ connection: "bfw_bq"
 include: "views/*"
 
 
-explore: users {}
-
 explore: mock_data_pp {}
 
 explore: mock_data_pd {hidden:yes}
