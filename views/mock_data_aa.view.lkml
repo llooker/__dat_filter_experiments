@@ -19,8 +19,13 @@ view: mock_data_aa {
       UNION ALL
       SELECT
       1.58805E+12 AS rowtime, NULL AS rowkey, '2020-04-28T04:10:00.000Z' AS start_time, '2020-04-28T04:40:00.000Z' AS end_time, 'FT-MMID' AS feature, '2020-04-28 04:40:00FT-MMID' AS key, 0 AS failed_sessions, 11 AS successful_sessions, 0 AS failed_customers, 7 AS customers_attempted, 1.0 AS success_rate, '2020-04-28 04:40:00' AS time, 6.0 AS yellow_fc_bound, 8.399999999999999 AS red_fc_bound, 0.85 AS yellow_sr_bound, 0.51 AS red_sr_bound, 0 AS aa_health, 11 AS step_1, 11 AS step_2, 11 AS step_3
+;;
+  }
 
-      ;;
+  parameter: feature_selector {
+    suggestions: [ "Login_Login", "FT_UPI", "FT_Mobile", "FT_MMID", "FT_Account", "FA_UPI"]
+    type: unquoted
+    default_value: "Login_Login"
   }
 
   dimension: rowtime {
@@ -46,6 +51,13 @@ view: mock_data_aa {
   dimension: feature {
     type: string
     sql: ${TABLE}.feature ;;
+    html: <div style="{% if feature_selector._parameter_value == feature_clean._value %}background-color:#CCC; {% else %} {% endif %}height:50px; width:100%;">
+         {{rendered_value}}
+      </div>;;
+  }
+
+  dimension: feature_clean {
+    sql: replace(${feature},"-","_") ;;
   }
 
   dimension: key {
@@ -68,14 +80,30 @@ view: mock_data_aa {
     sql: ${TABLE}.failed_customers ;;
   }
 
+  dimension: customers {
+    type: number
+    sql: ${customers_attempted} ;;
+    html:
+      <div style="{% if feature_selector._parameter_value == feature_clean._value %}background-color:#CCC; {% else %} {% endif %}height:50px; width:100%;">
+        <p style="height:50px;">{{failed_customers._rendered_value}} / {{rendered_value}} </p>
+      </div>;;
+  }
+
   dimension: customers_attempted {
     type: number
     sql: ${TABLE}.customers_attempted ;;
   }
 
   dimension: success_rate {
+    value_format_name: "percent_1"
     type: number
     sql: ${TABLE}.success_rate ;;
+    html:
+    <div style="{% if feature_selector._parameter_value == feature_clean._value %}background-color:#CCC; {% else %} {% endif %} height:50px; width:100%;">
+    <div style=" border-radius: 50%; color:white; background-color: {% if value > 0.5 %}lightgreen{% else %}red{% endif %}; height:50px;width:50px; text-align:center;">
+    <p style= "font-size:16px; padding-top:10px; padding-bottom:10px;"><b>{{rendered_value}}</b></p>
+    </div>
+    </div>;;
   }
 
   dimension_group: time {

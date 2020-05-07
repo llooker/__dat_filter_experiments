@@ -58,6 +58,17 @@ view: latest_only_pd {
       column: yellow_sr_threshold { field: mock_data_pd.yellow_sr_threshold }
     }
   }
+  dimension: system {
+    value_format_name: percent_1
+    type: number
+    sql: 1.0 -( 1.0 * ${system_failure_cum} / NULLIF(${api_calls_cum},0) );;
+    html:
+    <div style="{% if mock_data_aa.feature_selector._parameter_value == mock_data_aa.feature_clean._value %}background-color:#CCC; {% else %} {% endif %} height:50px; width:100%;">
+    <div style=" border-radius: 50%; color:white; background-color: {% if value > 0.5 %}lightgreen{% else %}red{% endif %}; height:50px;width:50px; text-align:center;">
+    <p style= "font-size:16px; padding-top:10px; padding-bottom:10px;"><b>{{rendered_value}}</b></p>
+    </div>
+    </div>;;
+  }
   dimension: api_calls_cum {
     type: number
   }
