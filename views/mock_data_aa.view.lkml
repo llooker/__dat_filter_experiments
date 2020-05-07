@@ -52,7 +52,7 @@ view: mock_data_aa {
     type: string
     sql: ${TABLE}.feature ;;
     html: <div style="{% if feature_selector._parameter_value == feature_clean._value %}background-color:#CCC; {% else %} {% endif %}height:50px; width:100%;">
-         {{rendered_value}}
+         <a href='/dashboards/4?_carousel="{{ feature_clean._value }}"'>{{rendered_value}}</a>
       </div>;;
   }
 
