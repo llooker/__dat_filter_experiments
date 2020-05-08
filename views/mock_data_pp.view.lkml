@@ -307,7 +307,7 @@ SELECT
 
   dimension: rowtime {
     type: number
-    sql:  CAST(${TABLE}.rowtime AS INT64) + 3000000 ;;
+    sql:  CAST(${TABLE}.rowtime AS INT64)  ;;
   }
 
   dimension: rowkey {
