@@ -320,8 +320,9 @@ view: mock_data_pp {
   }
 
   dimension: timestamp {
-    type: string
-    sql: ${TABLE}.timestamp ;;
+    type: date_time
+    expression: now() ;;
+#     sql: TIMESTAMP_ADD(TIMESTAMP(${TABLE}.timestamp), INTERVAL 225 HOUR) ;;
   }
 
   measure: count {
