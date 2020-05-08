@@ -307,7 +307,7 @@ SELECT
 
   dimension: rowtime {
     type: number
-    sql: ${TABLE}.rowtime ;;
+    sql:  CAST(${TABLE}.rowtime AS INT64) + 3000000 ;;
   }
 
   dimension: rowkey {
@@ -322,7 +322,7 @@ SELECT
 
   dimension: timestamp {
     type: string
-    sql: ${TABLE}.timestamp ;;
+    sql:${TABLE}.timestamp;;
   }
 
   measure: count {
