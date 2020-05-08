@@ -6,8 +6,8 @@ application: dashboard_carousel {
 
 application: ping_pong {
   label: "Ping Pong"
-  url: "http://localhost:8080/bundle.js"
-  # file: "js/bundle.js"
+#   url: "http://localhost:8080/bundle.js"
+  file: "js/pingpong.js"
 }
 
 visualization: {
