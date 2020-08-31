@@ -1,4 +1,5 @@
 application: jpmorgan {
+  label: "JP Morgan"
   url: "http://localhost:8080/bundle.js"
   entitlements: {
     local_storage: yes
