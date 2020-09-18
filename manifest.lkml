@@ -62,3 +62,17 @@ application: hello_world {
   url: "http://localhost:8080/bundle.js"
 
 }
+
+application: bq_showcase {
+  label: "BQ EF Showcase"
+  url: "http://localhost:8080/bundle.js"
+  entitlements: {
+    local_storage: yes
+    navigation: yes
+    new_window: yes
+    allow_forms: yes
+    allow_same_origin: yes
+    core_api_methods: ["all_connections","search_folders", "run_inline_query", "me", "all_looks", "run_look", "all_dashboards"]
+    external_api_urls: ["http://127.0.0.1:3000", "http://localhost:3000", "https://*.googleapis.com", "https://*.github.com"]
+    }
+}
