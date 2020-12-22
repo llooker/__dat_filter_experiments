@@ -1,4 +1,4 @@
-  connection: "bfw_bq"   include: "['views/*']" 
+  connection: "bfw_bq"   include: "["['views/*']"]" 
 
 
 explore: mock_data_pp {
@@ -37,6 +37,17 @@ explore: aa_pd {
       measures: [latest_only_pd.system_failure_cum_, latest_only_pd.system_other_failure_cum_, latest_only_pd.total_failures_cum_]      
       description: ""      
       filters: [ mock_data_aa.feature_clean:"Login_Login" ]       
+      limit: 5000
+     }
+    materialization: {       
+      sql_trigger_value: select 1 ;;
+     } }
+  aggregate_table: auto_pylookml_fZTrPmJ {
+    query: {       
+      dimensions: [mock_data_aa.feature, mock_data_aa.customers, mock_data_aa.success_rate, latest_only_pd.system]      
+      measures: []      
+      description: ""      
+      filters: [ mock_data_aa.feature_selector:"Login_Login" ]       
       limit: 5000
      }
     materialization: {       
