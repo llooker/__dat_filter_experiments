@@ -32,37 +32,5 @@ explore: aa_pd {
   view_name: mock_data_aa
   from: mock_data_aa
   always_join: [most_recent_aa]
-  aggregate_table: auto_pylookml_2FKMHKq {
-    query: {
-      dimensions: []
-      measures: [latest_only_pd.system_failure_cum_, latest_only_pd.system_other_failure_cum_, latest_only_pd.total_failures_cum_]
-      description: ""
-      filters: [ mock_data_aa.feature_clean:"Login_Login" ]
-      limit: 5000
-     }
-    materialization: {
-      sql_trigger_value: select 1 ;;
-     } }
-  aggregate_table: auto_pylookml_fZTrPmJ {
-    query: {
-      dimensions: [mock_data_aa.feature, mock_data_aa.customers, mock_data_aa.success_rate, latest_only_pd.system]
-      measures: []
-      description: ""
-#       filters: [ mock_data_aa.feature_selector:"Login_Login" ]
-      limit: 5000
-     }
-    materialization: {
-      sql_trigger_value: select 1 ;;
-     } }
-  aggregate_table: auto_pylookml_QsN5vnK {
-    query: {
-      dimensions: []
-      measures: [mock_data_aa.step_1, mock_data_aa.step_2, mock_data_aa.step_3]
-      description: ""
-      filters: [ mock_data_aa.feature_clean:"Login_Login" ]
-      limit: 5000
-     }
-    materialization: {
-      sql_trigger_value: select 1 ;;
-     } }
+
 }
