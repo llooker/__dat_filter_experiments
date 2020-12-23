@@ -52,5 +52,16 @@ explore: aa_pd {
      }
     materialization: {       
       sql_trigger_value: select 1 ;;
+     } }
+  aggregate_table: auto_pylookml_QsN5vnK {
+    query: {       
+      dimensions: []      
+      measures: [mock_data_aa.step_1, mock_data_aa.step_2, mock_data_aa.step_3]      
+      description: ""      
+      filters: [ mock_data_aa.feature_clean:"Login_Login" ]       
+      limit: 5000
+     }
+    materialization: {       
+      sql_trigger_value: select 1 ;;
      } } 
 }
